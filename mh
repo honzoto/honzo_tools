@@ -1,0 +1,78 @@
+#!/usr/bin/python3
+
+import sys
+
+# default variables
+c = ""; l = 100; t=0; n = False
+comment_char = "#"
+
+
+halp = """
+# ------------------------[ HELP MENU ]-----------------------
+this program takes some text and center-justifies it
+
+
+# --------------------------[ FLAGS ]-------------------------
+-c: character to use (default: '{c}')
+-l: length of the header (default: {l})
+-t: number of tabs to indent (default: {t})
+    if t > 0: character (-c) is changed to '-' unless otherwise specified
+
+# ------------------------------------------------------------
+""".format(c=c, l=l, t=t)
+
+usage = """
+< USAGE >
+sbsuser@biolin-01:~$ mh 'SEARCHING FOR PRIMERS IN MULTIPLE-SEQUENCE ALIGNMENT'
+# ======================[ SEARCHING FOR PRIMERS IN MULTIPLE-SEQUENCE ALIGNMENT ]======================
+
+sbsuser@biolin-01:~$ mh 'Using new coordinates file to subset MSA' -t 1
+    # ------------------------[ Using new coordinates file to subset MSA ]----------------------------
+
+sbsuser@biolin-01:~$ mh 'Forcing coordinates on MSA through pre-made CSV' -t 2
+        # -----------------[ Forcing coordinates on MSA through pre-made CSV ]------------------------
+
+"""
+
+lst_args = sys.argv[1:]
+lst_used = []
+if len(lst_args) < 1:
+    text = ""
+elif len(lst_args) == 1:
+    text = sys.argv[-1]
+else:
+    
+    for i in range(len(lst_args)):
+        if lst_args[i] == "-c":
+            c = lst_args[i+1]
+            lst_used.append(["-c", c])
+        elif lst_args[i] == "-l":
+            l = lst_args[i+1]
+            lst_used.append(["-l", l])
+        elif lst_args[i] == "-t":
+            t = lst_args[i+1]
+            lst_used.append(["-t", t])
+        elif lst_args[i] == "-h":
+            print(halp); quit
+
+lst_used = [v for sub in lst_used for v in sub]
+[lst_args.remove(str(v)) for v in lst_used]
+
+t = int(t); l = int(l)
+
+if len(lst_args) < 1: text = ""
+else: text = lst_args[0]
+
+if t > 0 and c == "": c = "-"
+if c == "": c = "="
+
+if text == "":
+    print("{0} ".format(comment_char)+c*l)
+else:
+    left = round((l-len(text))/2-2- t*4)*c+"[ "
+    right = " ]"+int((l-len(text))/2-2)*c
+
+    if len(left+text+right) % 4 == 3: 
+        left = c+left
+
+    print("{0} ".format(comment_char)+left+text+right)
