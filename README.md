@@ -1,7 +1,7 @@
 # honzo_tools
 Generic tools used to handle/visualize bioinformatics data
 
-## Generic tools
+## Generic scripts
 ### revc
 Python-based script to generate a reverse complement of a string. 
 Supports ambiguous and degenerate bases.
@@ -14,7 +14,7 @@ Python-based script meant to write center-aligned comments in a text file
 merges FASTQ files from run1 and run2
 
 
-## NGS-related tools
+## NGS-related scripts
 ### coverage_calculator.py
 Using a reference genome and a SAM/BAM file generated based on the reference, this script allows us to visualize the depth at each position of the chromosome. 
 The script will also calculate the coverage on each chromosome and the average depth
