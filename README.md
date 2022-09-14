@@ -1,5 +1,5 @@
 # honzo_tools
-Generic tools used to handle/visualize bioinformatics data
+Generic tools by honzo
 
 ## Generic scripts
 ### revc
