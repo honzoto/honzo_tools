@@ -9,6 +9,8 @@ USAGE: revc AGTCGATGCAGCAT
 
 ### mh
 Python-based script meant to write center-aligned comments in a text file
+Flags are used to specify the character type (c) or indentation/tab level (t)
+USAGE mh "This is a header"
 
 ### merger.py
 merges FASTQ files from run1 and run2
@@ -19,7 +21,7 @@ merges FASTQ files from run1 and run2
 Using a reference genome and a SAM/BAM file generated based on the reference, this script allows us to visualize the depth at each position of the chromosome. 
 The script will also calculate the coverage on each chromosome and the average depth
 
-BASIC USAGE: coverage_calculator.py -f <sam/bam file> -r <reference fasta>
+USAGE: coverage_calculator.py [options] -f <sam/bam file> -r <reference fasta>
 
 ### umiprofiling.py
 Gets the first 'N' bases of all the reads in an unzipped fastq file to writes the number of occurrences of each combination
