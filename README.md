@@ -20,7 +20,5 @@ The script will also calculate the coverage on each chromosome and the average d
 
 USAGE: coverage_calculator.py [options] -f <sam/bam file> -r <reference fasta>
 
-### umiprofiling.py
-Gets the first 'N' bases of all the reads in an unzipped fastq file to writes the number of occurrences of each combination
-
-USAGE: umiprofiling.py <fastq file>
+### readlengths.py
+Generates IQR and histograms showing the distribution of read lengths in an uncompressed FASTQ
