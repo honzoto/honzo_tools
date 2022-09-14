@@ -12,9 +12,6 @@ Python-based script meant to write center-aligned comments in a text file
 Flags are used to specify the character type (c) or indentation/tab level (t)
 USAGE mh "This is a header"
 
-### merger.py
-merges FASTQ files from run1 and run2
-
 
 ## NGS-related scripts
 ### coverage_calculator.py
@@ -27,6 +24,3 @@ USAGE: coverage_calculator.py [options] -f <sam/bam file> -r <reference fasta>
 Gets the first 'N' bases of all the reads in an unzipped fastq file to writes the number of occurrences of each combination
 
 USAGE: umiprofiling.py <fastq file>
-
-### find_mirnas.R
-Created this script in response to a tech support question. This script finds genes that are common between multiple samples and generates a dataframe with the counts. The script is also capable of detecting the most variable genes.
